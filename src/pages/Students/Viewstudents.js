@@ -26,7 +26,8 @@ function Viewstudents() {
                 </ol>
             </nav>
             <div>
-                <h1 className="mb-3">View Students : </h1>
+                <h1>View Students : </h1>
+                <h2 className="mb-3">Total students - {students.length} </h2>
             </div>
             {loading && <h1 className="text-center">LOADING..</h1>}
             <div className="row">
@@ -34,7 +35,7 @@ function Viewstudents() {
                 {students.map(student => {
                     return (<div className="col-lg-3 text-white">
                         <Link to={`/students/view-students/${student.id}`} className="text-white text-decoration-none" key={student.id}>
-                            <div className="py-5 px-3 mb-3 bg-primary rounded">
+                            <div className="py-5 px-3 mb-3 bg-primary rounded shadow">
                                 <h4>Name : {student.name}</h4>
                                 <h4>Class : {student.class}</h4>
                                 <h4>Contact : {student.contact}</h4>

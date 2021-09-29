@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { firestore } from '../../utils/firebaseConfig'
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 function Conductexam() {
     const [professor_id, setprofessor_id] = useState('');
@@ -19,8 +19,15 @@ function Conductexam() {
             history.push('/exams')
         });
     }
+    
     return (
         <div className="container mt-3">
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item"><Link to="/exams">Exams</Link></li>
+                    <li className="breadcrumb-item active" aria-current="page">View exams</li>
+                </ol>
+            </nav>
             <form className="shadow p-5">
                 <h1>Conduct Exam</h1>
                 <div className="mb-3">

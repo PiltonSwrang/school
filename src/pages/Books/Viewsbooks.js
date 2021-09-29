@@ -25,14 +25,15 @@ function Viewbooks() {
                     <li className="breadcrumb-item active" aria-current="page">View Library</li>
                 </ol>
             </nav>
-            <h1 className="mb-3">View Books</h1>
+            <h1>View Books</h1>
+            <h2 className="mb-3">Total Books - {books.length}</h2>
             {loading && <h1 className="text-center">LOADING..</h1>}
             <div className="row">
                 {!loading && books.length === 0 && <h1 className="text-center my-3">No books at present. Please add new books</h1>}
                 {books.map(book => {
                     return (<div className="col-lg-3 text-white">
                         <Link to={`/library/view-library/${book.id}`} className="text-white text-decoration-none" key={book.id}>
-                            <div className="py-5 px-3 mb-3 bg-success rounded">
+                            <div className="py-5 px-3 mb-3 bg-success rounded shadow">
                                 <h4>Name : {book.name}</h4>
                                 <h4>Author Name : {book.book_author}</h4>
                                 <h4>Book ID : {book.book_id}</h4>

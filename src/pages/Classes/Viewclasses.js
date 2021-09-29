@@ -26,15 +26,16 @@ function Viewclasses() {
                 </ol>
             </nav>
             <div>
-                <h1 className="mb-3">View Classes : </h1>
+                <h1>View Classes </h1>
+                <h2 className="mb-3">Total classes : {clas.length} </h2>
             </div>
             {loading && <h1 className="text-center">LOADING..</h1>}
             <div className="row">
-                {clas.length === 0 && <h1 className="text-center">No class created</h1>}
+                {!loading && clas.length === 0 && <h1 className="text-center">No class created</h1>}
                 {clas.map(cla => {
                     return (<div className="col-lg-3  text-white rounded">
                         <Link to={`/classes/view-classes/${cla.id}`} className="text-decoration-none text-white" key={cla.id}>
-                            <div className="py-5 px-3 mb-3 bg-info">
+                            <div className="py-5 px-3 mb-3 bg-info shadow">
                                 <h4>Student Id : {cla.student_id}</h4>
                                 <h4>Subject Id : {cla.subject_id}</h4>
                                 <h4>Volunteer Id : {cla.volunteer_id}</h4>

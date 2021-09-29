@@ -24,13 +24,14 @@ function Viewsubjects() {
                     <li className="breadcrumb-item active" aria-current="page">Edit book</li>
                 </ol>
             </nav>
-            <h1 className="mb-3">All Subjects</h1>
+            <h1>All Subjects</h1>
+            <h3 className="mb-3">Total subjects -- {sub.length}</h3>
             {loading && <h1 className="text-center">LOADING..</h1>}
             <div className="row">
                 {sub.map(s => {
                     return (<div className="col-lg-3 text-white">
                         <Link to={`/subject/view-subjects/${s.id}`} className="text-white text-decoration-none" key={s.id}>
-                            <div className="py-5 px-3 mb-3 bg-warning rounded">
+                            <div className="py-5 px-3 mb-3 bg-warning rounded shadow">
                                 <h4>Subject : {s.name}</h4>
                             </div>
                         </Link>

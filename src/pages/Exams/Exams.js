@@ -8,7 +8,7 @@ function Exams() {
             <div className="row">
                 <div className="col-lg-6">
                     <Link className="text-decoration-none text-white" to="/exams/conduct-exam">
-                        <h1 className="bg-danger py-5 text-center">Conduct Exam</h1>
+                        <h1 className="bg-danger py-5 text-center shadow">Conduct Exam</h1>
                     </Link>
                 </div>
                 {/* <div className="col-lg-6">
@@ -18,7 +18,7 @@ function Exams() {
                 </div> */}
                 <div className="col-lg-6">
                     <Link className="text-decoration-none text-white" to="/exams/view-results">
-                        <h1 className="bg-danger py-5 text-center">View Exams </h1>
+                        <h1 className="bg-danger py-5 text-center shadow">View Exams </h1>
                     </Link>
                 </div>
             </div>

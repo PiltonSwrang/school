@@ -5,7 +5,6 @@ import {
   Route
 } from "react-router-dom";
 import Navbar from './components/Navbar';
-// import './utils/firebaseConfig'
 
 import Home from './components/Home';
 import Students from './pages/Students/Students';
@@ -35,19 +34,16 @@ import Class from './pages/Classes/Class';
 import Editclass from './pages/Classes/Editclass';
 import Conductclass from './pages/Classes/Conductclass';
 import Viewclasses from './pages/Classes/Viewclasses';
-
 //! VOLUNTEER 
 import Addvolunteer from './pages/Volunteer/Addvolunteer';
 import Editvolunteer from './pages/Volunteer/Editvolunteer';
 import Viewvolunteer from './pages/Volunteer/Viewvolunteer';
 import Volunteer from './pages/Volunteer/Volunteer';
-
 //! SUBJECTS
 import Viewsubjects from './pages/Subject/Viewsubjects'
 import Addsubject from './pages/Subject/Addsubject';
 import Editsubject from './pages/Subject/Editsubject';
 import Sub from './pages/Subject/Sub';
-
 
 function App() {
   return (

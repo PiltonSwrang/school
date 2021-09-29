@@ -8,12 +8,12 @@ function Subject() {
             <div className="row gx-5">
                 <div className="col-lg-6">
                     <Link className="text-decoration-none text-white" to="/subject/add-subject">
-                        <h1 className="bg-warning py-5 text-center">Add Subject</h1>
+                        <h1 className="bg-warning py-5 text-center shadow">Add Subject</h1>
                     </Link>
                 </div>
                 <div className="col-lg-6">
                     <Link className="text-decoration-none text-white" to="/subject/view-subjects">
-                        <h1 className="bg-warning py-5 text-center">View Subjects</h1>
+                        <h1 className="bg-warning py-5 text-center shadow">View Subjects</h1>
                     </Link>
                 </div>
             </div>

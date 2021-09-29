@@ -14,12 +14,12 @@ function Books() {
             <div className="row">
                 <div className="col-lg-6">
                     <Link className="text-decoration-none text-white" to="library/add-book">
-                        <h1 className="bg-success py-5 text-center">Add Book</h1>
+                        <h1 className="bg-success py-5 text-center shadow">Add Book</h1>
                     </Link>
                 </div>
                 <div className="col-lg-6">
                     <Link className="text-decoration-none text-white" to="/library/view-library">
-                        <h1 className="bg-success py-5 text-center">Show Books</h1>
+                        <h1 className="bg-success py-5 text-center shadow">Show Books</h1>
                     </Link>
                 </div>
                 {/* <div className="col-lg-6">
