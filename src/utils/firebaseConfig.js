@@ -1,7 +1,12 @@
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
-import 'firebase/compat/storage'
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+import 'firebase/storage'
+
+// import firebase from 'firebase/compat/app';
+// import 'firebase/compat/auth';
+// import 'firebase/compat/firestore';
+// import 'firebase/compat/storage'
 
 const firebaseConfig = {
     apiKey: "AIzaSyAigYoSi_NiVMsdeluleF4M0UxQs4dgJgo",
@@ -18,7 +23,29 @@ if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig)
 }
 
+export const firebaseAuthConfig = {
+    signInFlow: 'popup',
+    signInOptions: [
+        {
+            provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            requireDisplayName: true
+        },
+        {
+            provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            requireDisplayName: true
+        },
+        {
+            provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+            requireDisplayName: true,
+            defaultCountry: 'IN'
+        },
+    ],
+    signInSuccessUrl: '/account',
+    credentialHelper: 'none'
+}
+
 export const auth = firebase.auth()
+export const GoogleAuthProvider = new firebase.auth.GoogleAuthProvider();
 export const firestore = firebase.firestore()
 export const increment = firebase.firestore.FieldValue.increment
 export const storage = firebase.storage()
