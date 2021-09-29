@@ -3,7 +3,7 @@ import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap';
 
 function NavTab() {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" className="shadow">
             <Container >
                 <Navbar.Brand className="mx-auto" href="/">Student Classroom</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { firestore } from '../../utils/firebaseConfig'
 import { useHistory, Link } from "react-router-dom";
 
-function Volunteer(props) {
+function Exam(props) {
+    console.log(props.match.params.id)
     const history = useHistory()
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
@@ -11,7 +12,7 @@ function Volunteer(props) {
         const fetchData = async () => {
             try {
                 const response = await firestore
-                    .collection('volunteers')
+                    .collection('exams')
                     .doc(props.match.params.id)
                     .get()
                     .then(snapshot => {
@@ -27,37 +28,40 @@ function Volunteer(props) {
     }, [props.match.params.id])
 
     const handleDelete = () => {
-        firestore.collection('volunteers')
+        firestore.collection('exams')
             .doc(props.match.params.id)
             .delete()
-            .then(() => history.push("/volunteer/view-volunteers"))
+            .then(() => {
+                alert('exam deleted')
+                history.push("/exams/view-results")
+            })
     }
 
     return (
         <div className="container mt-3">
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><Link to="/volunteer">Volunteer</Link></li>
-                    <li className="breadcrumb-item active" aria-current="page">View subject</li>
+                    <li className="breadcrumb-item"><Link to="/exams/view-exams">Exams</Link></li>
+                    <li className="breadcrumb-item active" aria-current="page">Edit Exam</li>
                 </ol>
             </nav>
-            <h1>Volunteer</h1>
+            <h1>Exam</h1>
             <div className="row">
                 <div className="col-lg-12 bg-danger text-white p-4">
-                    {data.length === 0 && <h1 className="text-center">No volunteers. Please add new ones</h1>}
+
                     {loading && <h1>LOADING......</h1>}
                     {data && <div>
-                        <h2>Name : {data.name}</h2>
-                        <h2>Contact : {data.contact}</h2>
-                        <h2>Occupation : {data.occupation}</h2>
+                        <h2>Professor Id : {data.professor_id}</h2>
+                        <h2>Subject Id : {data.subject_id}</h2>
+                        {/* <h2>Date : {data.date.toLocalestring()}</h2> */}
                     </div>}
                 </div>
             </div>
             <div className="row">
                 <div className="col-lg-12 p-4">
-                    <button className="btn btn-primary m-3" onClick={handleDelete}>Delete Volunteer</button>
-                    <a href={`/volunteer/view-volunteers/edit-volunteer/${props.match.params.id}`}>
-                        <button className="btn btn-warning m-3">Edit Volunteer</button>
+                    <button className="btn btn-primary m-3" onClick={handleDelete}>Delete Exam</button>
+                    <a href={`/exams/view-results/edit-exam/${props.match.params.id}`}>
+                        <button className="btn btn-warning m-3">Edit Exam</button>
                     </a>
                 </div>
             </div>
@@ -65,4 +69,4 @@ function Volunteer(props) {
     )
 }
 
-export default Volunteer
+export default Exam

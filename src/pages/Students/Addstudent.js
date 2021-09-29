@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { firestore } from '../../utils/firebaseConfig'
+import { useHistory, Link } from 'react-router-dom';
 
 
 function Addstudent() {
+    const history = useHistory()
     const [name, setName] = useState('');
     const [pname, setPName] = useState('');
     const [clas, setClas] = useState('');
@@ -15,12 +17,21 @@ function Addstudent() {
             parent: pname,
             class: clas,
             contact: contact
-        }).then(() => alert('added'));
+        }).then(() => {
+            alert('added')
+            history.push('/students')
+        });
     }
 
     return (
-        <div className="container">
-            <form>
+        <div className="container mt-3">
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item"><Link to="/students">Students</Link></li>
+                    <li className="breadcrumb-item active" aria-current="page">Add Student</li>
+                </ol>
+            </nav>
+            <form className="shadow p-5">
                 <h1>Add New Student</h1>
                 <div className="mb-3">
                     <label className="form-label">Student's Name</label>

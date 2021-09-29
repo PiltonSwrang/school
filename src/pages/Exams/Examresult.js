@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Examresult() {
     return (
-        <div className="container">
-            <form>
+        <div className="container mt-3">
+            <form className="shadow p-5">
                 <h1>Enter Exam Result</h1>
                 <div className="mb-3">
                     <label className="form-label">Exam ID</label>

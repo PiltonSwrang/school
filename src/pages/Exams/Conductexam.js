@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { firestore } from '../../utils/firebaseConfig'
-
+import { useHistory } from 'react-router-dom';
 
 function Conductexam() {
     const [professor_id, setprofessor_id] = useState('');
     const [sub, setSub] = useState('')
     const [dat, setDat] = useState('');
+    const history = useHistory()
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -13,11 +14,14 @@ function Conductexam() {
             professor_id: professor_id,
             subject_id: sub,
             date: dat
-        }).then(() => alert('added'));
+        }).then(() => {
+            alert('added exam')
+            history.push('/exams')
+        });
     }
     return (
-        <div className="container">
-            <form>
+        <div className="container mt-3">
+            <form className="shadow p-5">
                 <h1>Conduct Exam</h1>
                 <div className="mb-3">
                     <label className="form-label">Professor's ID</label>

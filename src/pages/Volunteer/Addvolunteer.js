@@ -1,23 +1,35 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router';
 import { firestore } from '../../utils/firebaseConfig'
+import { Link } from 'react-router-dom';
 
 function Addvolunteer() {
+    const history = useHistory()
     const [name, setName] = useState('');
     const [occupation, setOccupation] = useState('');
     const [contact, setContact] = useState('');
 
     const onSubmit = (e) => {
         e.preventDefault();
-        firestore.collection('students').add({
+        firestore.collection('volunteers').add({
             name: name,
             occupation: occupation,
             contact: contact
-        }).then(() => alert('added'));
+        }).then(() => {
+            alert('added new volunteer')
+            history.push('/volunteer')
+        });
     }
 
     return (
-        <div className="container">
-            <form>
+        <div className="container mt-3">
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item"><Link to="/volunteer">Volunteer</Link></li>
+                    <li className="breadcrumb-item active" aria-current="page">View subject</li>
+                </ol>
+            </nav>
+            <form className="shadow p-5">
                 <h1>Add New Volunteer</h1>
                 <div className="mb-3">
                     <label className="form-label">Volunteer's Name</label>
